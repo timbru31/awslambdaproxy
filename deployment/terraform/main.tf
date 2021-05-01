@@ -1,5 +1,5 @@
 locals {
-  docker_image = "vdan/awslambdaproxy"
+  docker_image = "timbru31/awslambdaproxy"
 
   proxy_credentials = var.proxy_credentials == null ? "${random_string.this.result}:${random_password.this.result}" : var.proxy_credentials
 

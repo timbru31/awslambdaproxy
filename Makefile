@@ -62,7 +62,7 @@ lambda-build:
 	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o artifacts/lambda/main ./pkg/lambda
 	zip -jr artifacts/lambda artifacts/lambda
 	go-bindata -nocompress -pkg server -o pkg/server/bindata.go artifacts/lambda.zip
-	mv artifacts/lambda.zip artifacts/lambda-$(VERSION).zip
+	cp artifacts/lambda.zip artifacts/lambda-$(VERSION).zip
 
 server-build-linux:
 	CGO_ENABLED=0 GOOS=$(OS) GOARCH=$(ARCH) go build -ldflags \
@@ -86,8 +86,8 @@ release:
 	zip -jr ./artifacts/$(TARGET)-$(OS)-$(VERSION).zip ./artifacts/server/$(OS)/$(TARGET)
 
 docker:
-	docker build . -t vdan/awslambdaproxy:$(VERSION) -t vdan/awslambdaproxy:latest
+	docker build . -t timbru31/awslambdaproxy:$(VERSION) -t timbru31/awslambdaproxy:latest
 
 docker-release:
-	docker push vdan/awslambdaproxy:$(VERSION)
-	docker push vdan/awslambdaproxy:latest
+	docker push timbru31/awslambdaproxy:$(VERSION)
+	docker push timbru31/awslambdaproxy:latest

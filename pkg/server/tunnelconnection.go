@@ -67,8 +67,8 @@ func (t *connectionManager) runTunnel() {
 	allLambdaIPs := map[string]int{}
 	for {
 		if len(t.tunnelConnections) > maxTunnels {
-			log.Println("Too many active tunnelConnections: " + string(len(t.tunnelConnections)) + ". MAX=" +
-				string(maxTunnels) + ". Waiting for cleanup.")
+			log.Println("Too many active tunnelConnections: " + string(rune(len(t.tunnelConnections))) + ". MAX=" +
+				string(rune(maxTunnels)) + ". Waiting for cleanup.")
 			time.Sleep(time.Second * 5)
 			continue
 		}

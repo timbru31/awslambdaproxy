@@ -1,4 +1,4 @@
-FROM golang:1.14 AS build-env
+FROM golang:1.16 AS build-env
 RUN apt-get update -y
 RUN apt-get install -y zip
 RUN go get -u github.com/go-bindata/go-bindata/...

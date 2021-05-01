@@ -1,7 +1,3 @@
-terraform {
-  experiments = [variable_validation]
-}
-
 variable "aws_access_key" {
   type        = string
   description = "AWS access key associated with an IAM user or role"
